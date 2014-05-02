@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  validates_presence_of :uid, :username, :token, :secret
+  validates_presence_of :uid, :username, :based_on, :token, :secret
 
   def client
     @client ||= Twitter::Client.new(
@@ -11,13 +11,17 @@ class Account < ActiveRecord::Base
   end
 
   def update_model
-    Ebooks::Archive.new(username, archive_path, client).sync
+    Ebooks::Archive.new(based_on, archive_path, client).sync
     model = Ebooks::Model.consume(archive_path)
     update model_dump: Marshal.dump(model)
   end
 
   def model
     Marshal.load(model_dump)
+  end
+
+  def bot
+    Bot.get(username) || Bot.new(self)
   end
 
   private
