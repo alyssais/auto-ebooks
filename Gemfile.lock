@@ -29,6 +29,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    awesome_print (1.2.0)
+    bloomfilter-rb (2.1.1)
+      redis
     buftok (0.2.0)
     builder (3.2.2)
     coffee-rails (4.0.1)
@@ -38,9 +41,25 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    cookiejar (0.3.2)
+    daemons (1.1.9)
     diff-lcs (1.2.5)
-    equalizer (0.0.9)
+    em-http-request (1.0.3)
+      addressable (>= 2.2.3)
+      cookiejar
+      em-socksify
+      eventmachine (>= 1.0.0.beta.4)
+      http_parser.rb (>= 0.5.3)
+    em-socksify (0.3.0)
+      eventmachine (>= 1.0.0.beta.4)
+    em-twitter (0.3.3)
+      buftok (~> 0.2)
+      eventmachine (~> 1.0)
+      http_parser.rb (~> 0.6)
+      simple_oauth (~> 0.2)
+    engtagger (0.2.0)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (2.0.2)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -49,9 +68,15 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    fast-stemmer (1.0.2)
+    gingerice (1.2.2)
+      addressable
+      awesome_print
+    highscore (1.2.0)
+      bloomfilter-rb (>= 2.1.1)
+      whatlanguage (>= 1.0.0)
     hike (1.2.3)
-    http (0.5.0)
-      http_parser.rb
+    htmlentities (4.3.1)
     http_parser.rb (0.6.0)
     i18n (0.6.9)
     jbuilder (2.0.6)
@@ -64,13 +89,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    memoizable (0.4.2)
-      thread_safe (~> 0.3, >= 0.3.1)
     mime-types (1.25.1)
     minitest (5.3.3)
     multi_json (1.9.3)
     multipart-post (2.0.0)
-    naught (1.0.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -94,6 +116,7 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.0.7)
     rspec-core (2.14.8)
     rspec-expectations (2.14.5)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -106,6 +129,8 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rufus-scheduler (3.0.7)
+      tzinfo
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -136,22 +161,33 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
-    twitter (5.8.0)
-      addressable (~> 2.3)
-      buftok (~> 0.2.0)
-      equalizer (~> 0.0.9)
-      faraday (~> 0.9.0)
-      http (~> 0.5.0)
-      http_parser.rb (~> 0.6.0)
-      json (~> 1.8)
-      memoizable (~> 0.4.0)
-      naught (~> 1.0)
-      simple_oauth (~> 0.2.0)
+    tweetstream (2.5.0)
+      daemons (~> 1.1)
+      em-http-request (~> 1.0.2)
+      em-twitter (~> 0.2)
+      twitter (~> 4.5)
+      yajl-ruby (~> 1.1)
+    twitter (4.8.1)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
+    twitter_ebooks (2.2.4)
+      engtagger
+      fast-stemmer
+      gingerice
+      highscore
+      htmlentities
+      minitest
+      rufus-scheduler
+      tweetstream (= 2.5)
+      twitter (~> 4.5)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    whatlanguage (1.0.5)
+    yajl-ruby (1.2.0)
 
 PLATFORMS
   ruby
@@ -170,4 +206,5 @@ DEPENDENCIES
   spring
   turbolinks
   twitter
+  twitter_ebooks
   uglifier (>= 1.3.0)
