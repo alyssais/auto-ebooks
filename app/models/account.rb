@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  validates_presence_of :uid, :username, :based_on, :token, :secret
+  validates_presence_of :uid, :username, :token, :secret
 
   def client
     @client ||= Twitter::Client.new(
@@ -13,6 +13,7 @@ class Account < ActiveRecord::Base
   def update_model
     Ebooks::Archive.new(based_on, archive_path, client).sync
     model = Ebooks::Model.consume(archive_path)
+    binding.pry
     update model_dump: Marshal.dump(model)
   end
 
@@ -31,6 +32,6 @@ class Account < ActiveRecord::Base
   end
 
   def archive_path
-    "#{Rails.root}/corpus/#{username}.json"
+    "#{Rails.root}/corpus/#{based_on}.json"
   end
 end
