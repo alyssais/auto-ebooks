@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyText
+  username: MyText
+  name: MyText
+  token: MyText
+  secret: MyText
+  model_dump: MyText
+
+two:
+  uid: MyText
+  username: MyText
+  name: MyText
+  token: MyText
+  secret: MyText
+  model_dump: MyText
