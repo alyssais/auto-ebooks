@@ -1,0 +1,7 @@
+<%= form_for @account do |f| %>
+  <div>
+    <%= f.label :based_on, "Username of the account to parody." %>
+    <%= f.text_field :based_on, maxlength: 15 %>
+  </div>
+  <%= f.submit %>
+<% end %>
