@@ -6,10 +6,20 @@ describe Account do
   it { should validate_presence_of :token }
   it { should validate_presence_of :secret }
 
-  it "can post a tweet" do
-    account = FactoryGirl.create(:valid_account)
+  before do
+    @account = FactoryGirl.create(:valid_account)
+  end
+
+  it "can tweet" do
     content = SecureRandom.uuid
-    account.client.update(content)
-    account.client.user_timeline.first[:text].should == content
+    @account.client.update(content)
+    @account.client.user_timeline.first[:text].should == content
+  end
+
+  it "can create its model" do
+    @account.send(:delete_archive)
+    @account.update model_dump: nil
+    @account.update_model
+    @account.model.should_not be_nil
   end
 end
