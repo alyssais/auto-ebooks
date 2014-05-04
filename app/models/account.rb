@@ -11,18 +11,22 @@ class Account < ActiveRecord::Base
   end
 
   def update_model
-    Ebooks::Archive.new(based_on, archive_path, client).sync
+    Ebooks::Archive.new(based_on_username, archive_path, client).sync
     model = Ebooks::Model.consume(archive_path)
-    binding.pry
     update model_dump: Marshal.dump(model)
+    @model = nil
+  end
+
+  def based_on_username
+    client.user(based_on.to_i)[:screen_name]
   end
 
   def model
-    Marshal.load(model_dump)
+    @model ||= Marshal.load(model_dump) if model_dump?
   end
 
   def bot
-    Bot.get(username) || Bot.new(self)
+    Bot.get(username) || Bot.new(self) if model.present?
   end
 
   private
