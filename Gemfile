@@ -15,6 +15,7 @@ gem 'pry-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'delayed_job_active_record'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'twitter_ebooks'
