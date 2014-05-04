@@ -57,12 +57,19 @@ class Bot < Ebooks::Bot
   def auto_reply(tweet, meta)
     reply_to = meta[:reply_prefix].gsub(/@/, "").split(/\s/)
     reply_to.select! do |username|
-      tweet[:user][:screen_name] == username || @account.client.friendship(username, @account.username)[:source][:followed_by]
+      tweet[:user][:screen_name] == username || check_followed_by(username) 
     end
     reply_prefix = reply_to.map { |u| "@#{u}" }.join(" ") + " "
     length = 140 - reply_prefix.length
     response = @account.model.make_response(tweet[:text], length)
     reply(tweet, reply_prefix + response)
+  end
+
+	def check_followed_by(username_or_id)
+		friendship = @account.client.friendship(username_or_id, @account.username)
+		followed_by = friendship[:source][:followed_by]
+		@account.client.unfollow(username) unless followed_by
+		followed_by
   end
 
   def should_reply?(tweet_or_dm)
