@@ -15,6 +15,6 @@ class AccountsController < ApplicationController
   def update
     @account = Account.find(params[:id])
     @account.update based_on: @account.client.user(params[:account][:based_on])[:id]
-    @account.update_model # TODO: delayed_job
+    @account.delay.update_model
   end
 end
