@@ -2,7 +2,7 @@
 
 Auto ebooks is a Rails app that helps you create Twitter ebooks bots. All it needs is an OAuth sign in to the bot account and the username of the account to parody.
 
-**DO NOT USE TO SPAM, OR TO PARODY PEOPLE WHO WONT GET THE JOKE**
+**DO NOT USE TO SPAM, OR TO PARODY PEOPLE WHO WON'T GET THE JOKE**
 
 I'm not liable for any harm you cause by using this software.
 
