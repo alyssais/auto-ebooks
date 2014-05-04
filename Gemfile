@@ -17,7 +17,7 @@ gem 'pry-rails'
 
 gem 'delayed_job_active_record'
 gem 'omniauth-twitter'
-gem 'twitter'
+gem 'twitter', '~> 4.0'
 gem 'twitter_ebooks'
 
 # Use jquery as the JavaScript library
