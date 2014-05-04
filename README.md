@@ -14,7 +14,7 @@ cd auto-ebooks.git
 bundle install
 ```
 
-You must also set the TWITTER_CONSUMER_KEY and TWITTER_CONSUMER_SECRET environment variables.
+You must also set the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` environment variables.
 
 ## Running
 
@@ -28,4 +28,5 @@ rake bots:run
 
 ## Creating a bot
 
-Visit http://localhost:3000 in your web browser when the app is running and follow the instructions. Bots will start running soon after being created.
+Visit [http://localhost:3000](http://localhost:3000) in your web browser when the app is running and follow the instructions. Bots will start running soon after being created.
+
