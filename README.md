@@ -12,7 +12,7 @@ I'm not liable for any harm you cause by using this software.
 git clone https://github.com/alyssais/auto-ebooks.git
 cd auto-ebooks.git
 bundle install
-
+bin/rake db:create db:migrate
 ```
 
 You must also set the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` environment variables.
