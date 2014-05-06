@@ -12,6 +12,7 @@ I'm not liable for any harm you cause by using this software.
 git clone https://github.com/alyssais/auto-ebooks.git
 cd auto-ebooks.git
 bundle install
+
 ```
 
 You must also set the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` environment variables.
@@ -21,9 +22,9 @@ You must also set the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` envir
 These three commands must be run **in parallel**.
 
 ```sh
-rails server
-rake jobs:work
-rake bots:run
+bin/rails server
+bin/rake jobs:work
+bin/rake bots:run
 ```
 
 ## Creating a bot
