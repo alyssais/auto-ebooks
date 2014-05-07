@@ -10,7 +10,7 @@ I'm not liable for any harm you cause by using this software.
 
 ```sh
 git clone https://github.com/alyssais/auto-ebooks.git
-cd auto-ebooks.git
+cd auto-ebooks
 bundle install
 bin/rake db:create db:migrate
 ```
