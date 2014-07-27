@@ -17,9 +17,9 @@ class Bot < Ebooks::Bot
       end
 
       bot.on_follow do |user|
-				unless user[:id_str] == account.uid
-					bot.follow(user[:screen_name])
-				end
+        unless user[:id_str] == account.uid
+          bot.follow(user[:screen_name])
+        end
       end
 
       bot.on_mention do |tweet, meta|
@@ -65,11 +65,11 @@ class Bot < Ebooks::Bot
     reply(tweet, reply_prefix + response)
   end
 
-	def check_followed_by(username_or_id)
-		friendship = @account.client.friendship(username_or_id, @account.username)
-		followed_by = friendship[:source][:followed_by]
-		@account.client.unfollow(username) unless followed_by
-		followed_by
+  def check_followed_by(username_or_id)
+    friendship = @account.client.friendship(username_or_id, @account.username)
+    followed_by = friendship[:source][:followed_by]
+    @account.client.unfollow(username) unless followed_by
+    followed_by
   end
 
   def should_reply?(tweet_or_dm)
