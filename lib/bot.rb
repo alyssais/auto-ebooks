@@ -12,7 +12,7 @@ class Bot < Ebooks::Bot
 
       bot.on_message do |dm|
         if should_reply? dm
-          bot.reply(account.model.make_response(dm[:text], 160))
+          bot.reply(dm, account.model.make_response(dm[:text], 160))
         end
       end
 
