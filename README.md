@@ -1,6 +1,6 @@
 # Auto Ebooks
 
-Auto ebooks is a Rails app that helps you create Twitter ebooks bots. All it needs is an OAuth sign in to the bot account and the username of the account to parody.
+Auto ebooks is a Rails app that helps you create Twitter ebooks bots. All it needs is an OAuth sign in to the bot account and the username of the account to parody. This is mostly a wrapper around [Mispy](https://twitter.com/m1sp)'s awesome [twitter_ebooks](https://github.com/mispy/twitter_ebooks).
 
 **DO NOT USE TO SPAM, OR TO PARODY PEOPLE WHO WON'T GET THE JOKE**
 
@@ -10,8 +10,9 @@ I'm not liable for any harm you cause by using this software.
 
 ```sh
 git clone https://github.com/alyssais/auto-ebooks.git
-cd auto-ebooks.git
+cd auto-ebooks
 bundle install
+bin/rake db:create db:migrate
 ```
 
 You must also set the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` environment variables.
@@ -21,9 +22,9 @@ You must also set the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` envir
 These three commands must be run **in parallel**.
 
 ```sh
-rails server
-rake jobs:work
-rake bots:run
+bin/rails server
+bin/rake jobs:work
+bin/rake bots:run
 ```
 
 ## Creating a bot
