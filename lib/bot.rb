@@ -76,7 +76,7 @@ class Bot < Ebooks::Bot
     user = tweet_or_dm[:sender] || tweet_or_dm[:user]
     should_reply = true
     should_reply &= !user[:screen_name].end_with?("_ebooks")
-    should_reply &= !tweet_or_dm[:retweeted]
+    should_reply &= !tweet_or_dm[:retweet]
   end
 
   def start
