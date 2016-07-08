@@ -1,5 +1,7 @@
 # Auto Ebooks
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 Auto ebooks is a Rails app that helps you create Twitter ebooks bots. All it needs is an OAuth sign in to the bot account and the username of the account to parody. This is mostly a wrapper around [Mispy](https://twitter.com/m1sp)'s awesome [twitter_ebooks](https://github.com/mispy/twitter_ebooks).
 
 **DO NOT USE TO SPAM, OR TO PARODY PEOPLE WHO WON'T GET THE JOKE**
